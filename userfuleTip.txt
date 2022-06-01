@@ -1,0 +1,3 @@
+mvn dependency:tree -Dverbose
+command to verify conflict is present in your dependencies
+
