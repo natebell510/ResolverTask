@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /*
- * This is a utility for reading from writing to excel files.
+ * This is a utility for reading from writing to Excel files.
  * it works with xls and xlsx files.
  */
 public class ExcelUtil {

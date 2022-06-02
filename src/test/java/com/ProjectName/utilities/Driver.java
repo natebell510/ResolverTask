@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.concurrent.TimeUnit;
 
@@ -72,12 +73,17 @@ public class Driver {
                 switch statement will determine the case, and open the matching browser
             */
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                    //testing insecure pages
+                    /*
+                    DesiredCapabilities dp = new DesiredCapabilities().chrome();
+                    dp.acceptInsecureCerts();
+                    dp.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS,true);
+                    dp.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.setAcceptInsecureCerts(true);
-                    // allow to open unsecured pages SSL required
-                    chromeOptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-                    chromeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+                    chromeOptions.merge(dp);
+                    //for stable ENV use setting below
+                     */
+                    WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
