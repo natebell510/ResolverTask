@@ -18,7 +18,7 @@ public class checkEnv {
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
     }
 
-    TestPage testPage = new TestPage();
+    TestPage testPage;
 
     @Test
     public void test1() {
@@ -66,5 +66,20 @@ public class checkEnv {
                 findElement(By.xpath("//button[@class='btn btn-lg btn-secondary']")).
                 getCssValue("background-color");
         System.out.println("rightButtonColor = " + rightButtonColor);
+    }
+
+    @Test
+    public void returnCellValue(){
+        TestPage.scrollToTestDiv(6);
+        String AnyCellValue = TestPage.returnAnyTableCellValue(0,2);
+        System.out.println("AnyCellValue = " + AnyCellValue);
+        String tableBodyCellValue = TestPage.returnTableBodyCellValue(1,3);
+        System.out.println("tableBodyCellValue = " + tableBodyCellValue);
+        Driver.getDriver().close();
+    }
+    @Test
+    public void getTextListItemValue(){
+    String value =    Driver.getDriver().findElement(By.xpath("//ul[@class='list-group']/li[2]/span/..")).getText();
+        System.out.println("value = " + value.substring(0,value.length()-2));
     }
 }

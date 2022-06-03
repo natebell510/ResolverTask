@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class TestPage {
     public TestPage() {
@@ -96,7 +97,7 @@ public class TestPage {
         }
         String listItemLocator = "//ul[@class='list-group']/li[" + num + "]";
         WebElement listItem = Driver.getDriver().findElement(By.xpath(listItemLocator));
-        return listItem.getText();
+        return listItem.getText().substring(0,listItem.getText().length()-2);
     }
 
     /**
@@ -113,7 +114,7 @@ public class TestPage {
         } else if (listItemNum.equalsIgnoreCase("third")) {
             num = 3;
         }
-        String listItemBadgeLocator = "//ul[@class='list-group']/li[" + listItemNum + "]/span";
+        String listItemBadgeLocator = "//ul[@class='list-group']/li[" + num + "]/span";
         WebElement listItemBadge = Driver.getDriver().findElement(By.xpath(listItemBadgeLocator));
         return Integer.parseInt(listItemBadge.getText());
     }
@@ -126,19 +127,18 @@ public class TestPage {
     @FindBy(xpath = "//div[@class='dropdown-menu show']")
     public WebElement dropDownMenuOptions;
 
-
     @FindBy(xpath = "//a[contains(text(),'Option 1')]")
     public WebElement dropDownOption1;
-
     /**
      * @param optionValue
      * @return clicks on chosen option
      */
-    public static void chooseDropDownOptionAndClick(String optionValue){
-        String locator = "//a[contains(text(),'"+optionValue+"')]";
+    public static void chooseDropDownOptionAndClick(String optionValue) {
+        String locator = "//a[contains(text(),'" + optionValue + "')]";
         WebElement optionItem = Driver.getDriver().findElement(By.xpath(locator));
         optionItem.click();
     }
+
     // Test 4
     // enabled button, getCssValue() for color
     @FindBy(xpath = "//div[@id='test-4-div']/button[@class='btn btn-lg btn-primary']")
@@ -161,7 +161,50 @@ public class TestPage {
     public WebElement messageAfterClickDiv5;
 
     //Test 6
+    //locate table
+    /**
+     * method that allows you to find the ANY value of ANY cell on the grid
+     *
+     * @return cell value
+     * @params column and  row
+     */
+    public static String returnAnyTableCellValue(int row, int column) {
+        String locator = "";
+        if (row >= 0 && row <= 3 && column >= 0 && column <= 2) {
+            column = column + 1;
+            // restricted add incorrect row or incorrect column
+            if (row == 0) {
+                locator = "//table/thead/tr/th[" + column + "]";
+            } else if (row > 0) {
+                //column=column+1;
+                locator = "//table/tbody/tr[" + row + "]/td[" + column + "]";
+            }
+            WebElement cell = Driver.getDriver().findElement(By.xpath(locator));
+            return cell.getText();
+        } else{
+            return "Incorrect row or column value given!\nColumn values are 0,1,2\nRow values are 0,1,2,3";
+        }
+    }
 
+    /**
+     * method that allows you to find the ANY value of ANY cell from table body without tables headers
+     * @return table body cell value
+     * @params column and row
+     */
+    public static String returnTableBodyCellValue(int row, int column) {
+        String locator = "";
+        if (row >= 0 && row <= 2 && column >= 0 && column <= 2) {
+            column = column + 1;
+            if (row > 0) {
+                row=row+1;
+                locator = "//table/tbody/tr[" + row + "]/td[" + column + "]";
+            }
+            WebElement cell = Driver.getDriver().findElement(By.xpath(locator));
+            return cell.getText();
+        } else{
+            return "Incorrect row or column value given!\nColumn values are 0,1,2\nRow values are 0,1,2";
+        }
+    }
 
 
 }

@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
                 "rerun:rerunResults/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
-        glue = "com/ProjectName/step_defs",
+        glue = "com/ProjectName/step_definitions",
         features = "src/test/resources/features",
-        tags = "",
+        tags = "@wip",
         publish = false,
         dryRun = false
 
@@ -23,9 +23,6 @@ import org.junit.runner.RunWith;
 
 )
 //check selenium Grid Hub for available instances to run
-//to run Selenium/Cucumber - Binaries (Browser should be installed) and annotations are used to run the test
+//to run Selenium/Cucumber - Binaries (Browsers should be installed) and annotations are used to run the test
 public class CukeRunner {
-
-
-
 }

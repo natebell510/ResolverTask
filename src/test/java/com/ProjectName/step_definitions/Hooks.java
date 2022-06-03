@@ -1,6 +1,5 @@
-package com.ProjectName.step_defs;
+package com.ProjectName.step_definitions;
 
-import com.ProjectName.utilities.ConfigurationReader;
 import com.ProjectName.utilities.Driver;
 
 import io.cucumber.java.Scenario;
