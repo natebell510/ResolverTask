@@ -1,5 +1,6 @@
 package com.ProjectName.step_defs;
 
+import com.ProjectName.utilities.ConfigurationReader;
 import com.ProjectName.utilities.Driver;
 
 import io.cucumber.java.Scenario;
@@ -21,9 +22,10 @@ public class Hooks {
             Driver.setDriver("chrome");
         } else if(scenario.getSourceTagNames().contains("@opera")){
             Driver.setDriver("opera");
-        }else if(scenario.getSourceTagNames().contains("@edge")){
+        }else if(scenario.getSourceTagNames().contains("@edge")) {
             Driver.setDriver("edge");
         }
+
     }
 
 
