@@ -1,0 +1,71 @@
+Maven project: ResolverTask
+When project is clone or checked, all work is on separate QAbranch
+BROWSER BINARIES SHOULD BE PRE-INSTALLED, this project used Chrome browser
+To set up ENV - first set physical location of QE-index.html from local machine to configuration.properties file
+This Project has specific folder structure due to Cucumber/JUnit implementation. 
+For example Resources contains features: tests that  are written in Gherkin language for non-technical people 
+and "java" folder contains step_definitions that are code implementation.
+Cucumber helps to organized code in more efficient way.
+
+Project Structure:
+ - .gitigore - to avoid sharing specific files and folder with repository
+ - configuration.properties - holds importand test data like Env, credentials to avoid hard coding. Env is path to html file
+ - jenkinsfile - contains groovy script for pipeline
+ - myFramework.txt - explanation of BDD Cucumber framework
+ - pom.xml - file to manage dependencies, plugins and builds
+ - src:
+ 	 - main - folder for Dev
+ 	 - test for testing 
+ 	 		- java
+ 	 			- com 
+ 	 				- ProjectName
+ 	 					- pages - contains TestPage - is Page Object Model to store locator and method for specific page of application
+ 	 					- runners
+ 	 						 - contains CukeRunner class that triggers test execution and plugins for reports
+ 	 						 - failed runner - rerun plugin helps to rerun failed tests
+ 	 					- standaloneTests - has	6 tests (Selenium + JUnit for Assertions) - it is FIRST SOLUTION TO ASSESSMENT
+ 	 						- in test6 - contains 2 methods for web table, one including table header, second for table bodu only
+ 	 					- step_definitions - folder that contains code implementaion for feature file with defined steps in JAVA/Selenium
+ 	 						- Hooks - class with Before annotation to choose browser in Driver class and @After - if scenario failed - screenshot will be taken.
+ 	 						- test*_step_defs -folder with script - it is SECOND SOLUTION TO ASSESSMENT
+ 	 					- utilities - folder to store Singleton design for WebDriver and reusable methods
+ 	 						- BrowserUtils - contains Wait methods and other useful functions
+ 	 						- ConfigurationReader class used to read from configuraion.properties file
+ 	 						- Driver - Singleton - to pass single instance of WebDriver, 
+ 	 						  this class with Driver pool for SureFire plugin execution with Maven, closeDriver() method to quit instance
+ 	 						- ExcelUtil - for reading Excel file via Apache POI 
+ 	 						- WebTableUtils - can be reused in any test, not in standaloneTests package due to different WebDriver settings 
+
+ 	 		- resources
+ 	 			- features - folder contains feature file with Scenarios that are written in Gherking language 
+ - target folder after each Maven test run contains Cucumver report in html and rerun.txt for Failed Runner Class
+ - TaskDocumentation - contains QE-guide.html and QE-index.html, TestCases for manual Testing, ScreenShots, Technical Task Breakdown(mini Test Plan)	 
+ - usefulTip.txt - simple txt to store commands or etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mvn clean test -D"cucumber.filter.tags=@resolver"
