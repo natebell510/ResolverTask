@@ -1,3 +1,8 @@
 mvn dependency:tree -Dverbose
 command to verify conflict is present in your dependencies
+--> run surefire tests plugin with maven
+mvn clean test -D"cucumber.filter.tags=@resolver"
+depends on a version of cucumber-jvm-dependencies
+mvn clean test -Dcucumber.filter.tags="@resolver"
+mvn clean test -Dcucumber.filter.tags="@resolver" -Dsurefire.rerunFailingTestsCount=1
 

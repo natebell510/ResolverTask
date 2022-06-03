@@ -1,4 +1,4 @@
-
+@resolver @test2
 Feature: Values in the list-group div Test 2
 
   Background: pre-condition:

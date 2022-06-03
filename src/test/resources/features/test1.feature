@@ -1,4 +1,4 @@
-@test1
+@resolver @test1
 Feature: Sample Login
 
   Background: pre-condition:

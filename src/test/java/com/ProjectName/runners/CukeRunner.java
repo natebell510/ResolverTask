@@ -9,12 +9,12 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "html:target/cucumber-report.html",
-                "rerun:rerunResults/rerun.txt",
+                "rerun:target/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         glue = "com/ProjectName/step_definitions",
         features = "src/test/resources/features",
-        tags = "@wip",
+        tags = "@resolver",
         publish = false,
         dryRun = false
 

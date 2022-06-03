@@ -93,6 +93,10 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+    public static WebElement waitForVisibility(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),100);
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
 
     /**
      * Waits for element matching the locator to be visible on the page

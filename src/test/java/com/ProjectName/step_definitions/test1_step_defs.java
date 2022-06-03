@@ -61,7 +61,7 @@ public class test1_step_defs {
     }
     @Then("input boxes can not be empty")
     public void input_boxes_can_not_be_empty() {
-        //password input box has attribute "required" - if false shows a message "Please fill out this field."
+        //password input box has attribute "required" -  shows a message "Please fill out this field."
         String isRequired = testPage.passwordInputBox.getAttribute("required");
         Assert.assertTrue(Boolean.valueOf(isRequired));
     }

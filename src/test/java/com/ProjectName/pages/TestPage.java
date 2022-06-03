@@ -195,10 +195,10 @@ public class TestPage {
         String locator = "";
         if (row >= 0 && row <= 2 && column >= 0 && column <= 2) {
             column = column + 1;
-            if (row > 0) {
+
                 row=row+1;
                 locator = "//table/tbody/tr[" + row + "]/td[" + column + "]";
-            }
+
             WebElement cell = Driver.getDriver().findElement(By.xpath(locator));
             return cell.getText();
         } else{
