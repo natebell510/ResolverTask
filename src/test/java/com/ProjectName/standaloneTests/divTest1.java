@@ -45,7 +45,7 @@ public class divTest1 {
     @Test
     public void test1_002() {
         //verify elements are displayed
-        WebDriverManager.chromedriver().setup();
+        //WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -62,7 +62,7 @@ public class divTest1 {
     @Test
     public void test1_003() {
         //verify valid email and valid password, email input box autofocused
-        WebDriverManager.chromedriver().setup();
+        //WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();

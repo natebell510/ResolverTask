@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class divTest6 {
@@ -38,7 +39,7 @@ public class divTest6 {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true)", div6);
         //wait for table to be displayed
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ZERO);
         wait.until(ExpectedConditions.visibilityOf(div6));
         //  user checks value at cell at row 1 column 1
         int expectedRow = 1;

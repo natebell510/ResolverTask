@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class divTest5 {
@@ -42,7 +43,7 @@ public class divTest5 {
                 findElement(By.xpath("//p[@id='test5-placeholder']")).getText();
         Assert.assertEquals(expectedMessageBeforeButton,actualMessageBeforeButton);
         //explicit wait, until condition is met and button is clickable
-        WebDriverWait wait  = new WebDriverWait(driver,100);
+        WebDriverWait wait  = new WebDriverWait(driver, Duration.ZERO);
         WebElement buttonDiv5 = driver.findElement(By.xpath("//button[@id='test5-button']"));
         wait.until(ExpectedConditions.elementToBeClickable(buttonDiv5));
         buttonDiv5.click();

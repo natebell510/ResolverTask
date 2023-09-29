@@ -192,6 +192,7 @@ public class TestPage {
      * @params column and row
      */
     public static String returnTableBodyCellValue(int row, int column) {
+
         String locator = "";
         if (row >= 0 && row <= 2 && column >= 0 && column <= 2) {
             column = column + 1;
@@ -204,6 +205,9 @@ public class TestPage {
         } else{
             return "Incorrect row or column value given!\nColumn values are 0,1,2\nRow values are 0,1,2";
         }
+    }
+    String name(){
+        return this.buttonDiv5.getText();
     }
 
 

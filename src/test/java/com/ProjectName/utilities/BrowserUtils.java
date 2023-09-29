@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,11 +91,11 @@ public class BrowserUtils {
      * @return
      */
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ZERO);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
     public static WebElement waitForVisibility(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),100);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(4));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -106,7 +107,7 @@ public class BrowserUtils {
      * @return
      */
     public static WebElement waitForVisibility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ZERO);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
@@ -118,7 +119,7 @@ public class BrowserUtils {
      * @return
      */
     public static WebElement waitForClickability(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ZERO);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -130,7 +131,7 @@ public class BrowserUtils {
      * @return
      */
     public static WebElement waitForClickablility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ZERO);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
@@ -146,7 +147,7 @@ public class BrowserUtils {
             }
         };
         try {
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeOutInSeconds);
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ZERO);
             wait.until(expectation);
         } catch (Throwable error) {
             error.printStackTrace();
@@ -376,7 +377,7 @@ public class BrowserUtils {
      * @param time
      */
     public static void waitForPresenceOfElement(By by, long time) {
-        new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
+        new WebDriverWait(Driver.getDriver(), Duration.ZERO).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
 

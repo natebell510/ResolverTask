@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class divTest3 {
@@ -62,7 +63,7 @@ public class divTest3 {
         WebElement selectedOption = driver.findElement(By.xpath("//button[@id='dropdownMenuButton']"));
         selectedOption.click();
         WebElement dropDownMenuOptions = driver.findElement(By.xpath("//div[@class='dropdown-menu show']"));
-        WebDriverWait wait = new WebDriverWait(driver,10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ZERO);
         wait.until(ExpectedConditions.visibilityOf(dropDownMenuOptions));
         WebElement option3 = driver.findElement(By.xpath("//a[contains(text(),'Option 3')]"));
         option3.click();

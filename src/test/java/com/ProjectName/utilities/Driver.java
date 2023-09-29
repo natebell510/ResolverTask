@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
+
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -83,25 +83,25 @@ public class Driver {
                     chromeOptions.merge(dp);
                     //for stable ENV use setting below
                      */
-                    WebDriverManager.chromedriver().setup();
+                   // WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
+                   // WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
-                case "opera":
-                    WebDriverManager.operadriver().setup();
-                    driverPool.set(new OperaDriver());
-                    driverPool.get().manage().window().maximize();
-                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    break;
+                //case "opera":
+                //                    WebDriverManager.operadriver().setup();
+                //                    driverPool.set(new OperaDriver());
+                //                    driverPool.get().manage().window().maximize();
+                //                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                //                    break;
                 case "edge":
-                    WebDriverManager.edgedriver().setup();
+                    //WebDriverManager.edgedriver().setup();
                     driverPool.set(new EdgeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
